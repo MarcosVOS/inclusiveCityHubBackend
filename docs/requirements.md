@@ -19,27 +19,27 @@
 ## 2. Ideia de tabelas
 
 ```sql
--- Table to store all types of users (common, company, admin)
+-- Table to store all types of users (common, enterprise, admin)
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     -- The user type determines if it needs a corresponding entry in the companies table.
-    user_type ENUM('common', 'company', 'admin') NOT NULL,
+    user_type ENUM('common', 'enterprise', 'admin') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table to store specific information for companies.
+-- Table to store specific information for enterprises.
 -- This table has a one-to-one relationship with the users table.
-CREATE TABLE companies (
+CREATE TABLE enterprises (
     -- The user_id is both the Primary Key and the Foreign Key.
-    -- This enforces that one user can only have one company entry.
+    -- This enforces that one user can only have one enterprise entry.
     user_id INT PRIMARY KEY,
-    cnpj VARCHAR(18) NOT NULL UNIQUE, -- Brazilian company tax ID
+    cnpj VARCHAR(18) NOT NULL UNIQUE, -- Brazilian enterprise tax ID
     is_approved BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     -- The FOREIGN KEY constraint links this table to the users table.
-    -- ON DELETE CASCADE means if the user is deleted, its company profile is also deleted.
+    -- ON DELETE CASCADE means if the user is deleted, its enterprise profile is also deleted.
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -49,11 +49,11 @@ CREATE TABLE categories (
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
--- Table to store events created by companies
+-- Table to store events created by enterprises
 CREATE TABLE events (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    -- Events are linked directly to the company (via its user_id).
-    company_id INT NOT NULL,
+    -- Events are linked directly to the enterprise (via its user_id).
+    enterprise_id INT NOT NULL,
     category_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     description TEXT,
@@ -61,7 +61,7 @@ CREATE TABLE events (
     location VARCHAR(255) NOT NULL,
     is_approved BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (company_id) REFERENCES companies(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (enterprise_id) REFERENCES enterprises(user_id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 ```

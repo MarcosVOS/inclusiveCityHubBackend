@@ -8,15 +8,28 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "node --watch src/server.js ",
-    "test:watch": "vitest --watch"
+    "dev": "node --watch src/server.js",
+    "test:watch": "vitest --watch",
+    "db:up": "docker compose up -d --build",
+    "db:down": "docker compose down -v",
+    "migrate:latest": "npx knex migrate:latest --knexfile knexfile.js",
+    "migrate:rollback": "npx knex migrate:rollback --knexfile knexfile.js",
+    "knex": "npx knex --knexfile knexfile.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^17.2.3",
     "fastify": "^5.6.1",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "pg": "^8.16.3",
     "supertest": "^7.1.4",
     "vitest": "^3.2.4"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
   }
 }
