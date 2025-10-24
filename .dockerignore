@@ -1,0 +1,18 @@
+node_modules 
+.git
+.gitignore
+
+#Arquivos de ambiente e temporarios 
+.env
+.env.development
+.env.example
+tmp 
+
+#Log e teste de scripts
+.log
+.ps1
+test
+
+# Documentação 
+docs
+requirements.md

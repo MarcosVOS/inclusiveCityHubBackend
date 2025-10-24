@@ -11,7 +11,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD:-admin123456789}
       DB_NAME: ${DB_NAME:-inclusive_city_hub}
     ports:
-      - "8080:8080"
+      - "8080:3000"
     depends_on:
       - db
 

@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . .
 
 # Expõe a porta que sua aplicação roda
-EXPOSE 8080
+EXPOSE 3000
 
 # Comando para iniciar a aplicação
-CMD ["node", "index.js"]
+CMD ["node", "src/server.js"]

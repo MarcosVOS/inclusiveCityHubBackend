@@ -3,10 +3,10 @@ import 'dotenv/config';
 const common = {
   client: 'pg',
   connection: {
-    host: process.env.DB_HOST || '127.0.0.1',
+    host: process.env.DB_HOST || 'db',
     port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 5432,
-    user: process.env.DB_USER || 'postgres',
-    password: process.env.DB_PASSWORD || 'postgres',
+    user: process.env.DB_USER || 'admin',
+    password: process.env.DB_PASSWORD || 'admin123456789',
     database: process.env.DB_NAME || 'inclusive_city_hub'
   },
   pool: {
