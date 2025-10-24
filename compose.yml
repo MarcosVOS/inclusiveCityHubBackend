@@ -13,7 +13,8 @@ services:
     ports:
       - "8080:3000"
     depends_on:
-      - db
+      db: 
+        condition: service_healthy  
 
   db:
     image: postgres:15
@@ -27,6 +28,12 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-admin} -d ${DB_NAME:-inclusive_city_hub} -h localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
 volumes:
   db_data:
