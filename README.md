@@ -7,10 +7,8 @@ Este repositório contém toda a estrutura do **servidor**, o **banco de dados**
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Node.js** — ambiente de execução do JavaScript  
-- **Express.js** *(ou framework equivalente)* — API RESTful  
-- **PostgreSQL** — banco de dados relacional  
-- **Sequelize** *(ou outro ORM, se aplicável)*  
+- **Node.js** — ambiente de execução do JavaScript    
+- **PostgreSQL** — banco de dados relacional    
 - **Docker & Docker Compose** — containerização da aplicação  
 - **GitHub Actions** — pipeline de CI/CD (em desenvolvimento)  
 - **npm** — gerenciador de pacotes
