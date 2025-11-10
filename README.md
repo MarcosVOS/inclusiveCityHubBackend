@@ -10,6 +10,10 @@ Este repositório contém toda a estrutura do **servidor**, o **banco de dados**
 - **Node.js** — ambiente de execução do JavaScript    
 - **PostgreSQL** — banco de dados relacional    
 - **Docker & Docker Compose** — containerização da aplicação  
-- **GitHub Actions** — pipeline de CI/CD (em desenvolvimento)  
+- **GitHub Actions** — pipeline de CI/CD  
 - **npm** — gerenciador de pacotes
 
+## Docker funcionando 
+
+
+<img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/5b01571d-b11d-4fba-9265-d4a423a2c3f3" />
